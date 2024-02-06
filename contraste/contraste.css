@@ -1,0 +1,495 @@
+/* @override 
+	http://24-jirafeau:8888/media/mono/style.css.php
+	http://24-jirafeau:8888/media/mono/mono.css */
+
+/* ==========================================================================
+   Summary
+
+   1 = Basic Style
+   2 = Copyright
+   3 = Options
+   4 = Upload
+   5 = Terms of service
+   6 = Install
+   7 = Admin
+   8 = Download page
+
+   ========================================================================== */
+
+/* ==========================================================================
+   1 = Basic Style
+   ========================================================================== */
+
+@font-face {
+	font-family: 'Space Grotesk';
+	src:	url("SpaceGrotesk[wght].woff2") format("woff2");
+	font-weight: 100 700;
+	font-style: normal;
+}
+
+:root {
+	--bg: white;
+	--main: black;
+	--bgaccent: #e9e9e9;
+	--font: 'Space Grotesk';
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--bg);
+	font-family: var(--font);
+	margin: 0;
+	color: var(--main);
+	line-height: 1.5;
+	font-variant: common-ligatures tabular-nums;
+}
+
+#content {
+	padding: 3vw;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	justify-content: space-between;
+}
+
+h1, h2 {
+	text-align: center;
+	font-size: unset;
+	font-weight: unset;
+}
+
+a {
+	color: var(--main);
+}
+
+fieldset {
+	border: 0;
+	padding: 1.5em;
+	margin: 0 auto;
+	min-height: 15em;
+	width: 100%;
+	max-width: 40rem;
+	position: relative;
+}
+
+legend {
+	padding: 0.5em 1em;
+	background: var(--bg);
+	display: block;
+	min-width: 8em;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: .75rem;
+	letter-spacing: .2ch;
+	word-break: break-all;
+	margin: auto;
+}
+
+table a:hover, table a:focus {
+	text-decoration: none;
+}
+
+input {
+	font: var(--font);
+}
+
+input[type="submit"] {
+	background: var(--main);
+	border: 0;
+	border-radius: 1rem;
+	padding: 0.4em 1em;
+	font-size: 1.1em;
+	color: var(--bg);
+	cursor: pointer;
+	transition: background 200ms ease-in-out 0s,color 200ms ease-in-out 0s;
+	font-size: 1rem;
+	border: 1px solid var(--main);
+}
+
+input[type="submit"]:hover, input[type="submit"]:focus {
+	transition: transform 100ms cubic-bezier(.17,.67,.87,.33) 0s;
+	background-color: var(--bg);
+	color: var(--main);
+	transition: background 200ms ease-in-out 0s,color 200ms ease-in-out 0s;
+}
+
+.logout input {
+	background: unset;
+	padding: unset;
+	color: unset;
+	text-decoration: underline;
+	border-radius: unset;
+	border: unset;
+}
+
+select, input[type="text"], input[type="password"] {
+	padding: 5px 5px;
+	font-size: 100%;
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	margin-bottom: 1ch;
+	max-width: 90%;
+}
+
+input[type="password"] {
+	width: 100%;
+}
+
+select {
+	width: 100%;
+}
+
+table {
+	margin: auto;
+}
+
+.inner {
+	margin-top: 3em;
+}
+
+form.login {
+	text-align: center;
+}
+
+#upload fieldset {
+	background: url(upload.svg) no-repeat center;
+	transition: all 0.5s ease;
+	margin-bottom: 3ch;
+}
+
+#upload > form {
+	text-align: center;
+}
+
+#upload p {
+	margin: 0;
+}
+
+#file_select {
+	position: relative;
+	width: 100%;
+	height: 16em;
+	cursor: pointer;
+	opacity: 0;
+}
+
+#upload.file-selected #file_select {
+	opacity: 1;
+	height: 2em;
+}
+
+#upload.file-selected fieldset {
+	background-image: none;
+}
+
+
+/* ==========================================================================
+   2 = Copyright
+   ========================================================================== */
+
+#copyright {
+	text-align: center;
+	font-size: 0.6rem;
+	margin: 3em auto 0;
+}
+
+/* ==========================================================================
+   3 = Options
+   ========================================================================== */
+
+#options {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	height: 90%;
+}
+
+#options tr {
+	height: 2.7em;
+}
+
+#option_table tr:first-child {
+	width: 100%;
+	height: 100%;
+}
+
+#option_table td:first-child {
+	
+}
+
+#options input[type="submit"] {
+	margin: 1em auto;
+}
+
+#option_table {
+	font-size: 75%;
+	width: 100%;
+}
+
+/* ==========================================================================
+   4 = Upload
+   ========================================================================== */
+
+#upload_finished, #uploading, .message, .info, .error {
+	text-align: center;
+}
+
+#upload_finished code {
+	margin-bottom: 4ch;
+	display: inline-block;
+}
+.error {
+	color: red;
+}
+
+.message {
+	color: #1dd200;
+}
+
+#uploading {
+	background: url(loader.svg) no-repeat center;
+	background-size: contain;
+	font-size: .75rem;
+	height: 20rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#upload_finished > p:nth-child(1) {
+	font-weight: bold;
+}
+
+#uploading a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#uploaded_percentage {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#upload_link_email {
+	display: none;
+}
+
+#upload_image_email {
+	display: none;
+}
+
+#upload_link_button, #preview_link_button, #direct_link_button, #delete_link_button {
+	display: none;
+}
+
+code {
+	background-color: var(--bgaccent);
+	padding: .5ch;
+	border-radius: 5px;
+	opacity: .6;
+}
+
+/* ==========================================================================
+   5 = Terms of service
+   ========================================================================== */
+
+textarea[readonly="readonly"] {
+	border: 0;
+	color: #795548;
+	font-family: Arial, sans-serif;
+	background: none;
+	margin: auto;
+	display: block;
+}
+
+textarea[readonly="readonly"] + p, textarea[readonly="readonly"] + p + p {
+	text-align: center;
+	color: #795548;
+}
+
+textarea[readonly="readonly"] + p a, textarea[readonly="readonly"] + p + p a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #795548;
+}
+
+textarea[readonly="readonly"] + p a:hover, textarea[readonly="readonly"] + p + p a:hover, textarea[readonly="readonly"] + p a:focus, textarea[readonly="readonly"] + p + p a:focus {
+	text-decoration: underline;
+}
+
+#upload_finished a {
+	font-size: 1.2rem;
+}
+#upload_finished a::after{
+content: ' ↗';
+
+}
+
+/* ==========================================================================
+   6 = Install
+   ========================================================================== */
+
+#install fieldset, #install + fieldset {
+	width: auto;
+	max-width: 50em;
+	border: 7px dashed #bcaaa4;
+}
+
+#install table, #install + fieldset table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#install td, #install + fieldset td {
+	padding: 0.5em 1em;
+	border-bottom: 0;
+}
+
+#install td:empty {
+	width: 13.1em;
+}
+
+#install table form:nth-child(odd), #install + fieldset tr:nth-child(odd) {
+	background: #bcaaa4;
+}
+
+#install fieldset > form {
+	margin-top: 2em;
+	text-align: center;
+}
+
+#install form {
+	display: table;
+	width: 100%;
+}
+
+#install td:last-child {
+	text-align: left;
+}
+
+#install .info {
+	width: 19em;
+}
+
+#install input[type="submit"] {
+	min-width: 10.5em;
+}
+
+#install + fieldset table {
+	font-size: 0.9em;
+}
+
+#install + fieldset td:first-child input[type="submit"] {
+	background: none;
+	padding: 0;
+	color: #000;
+	font-weight: bold;
+	border-bottom: 0;
+}
+
+#install + fieldset td:first-child input[type="submit"]:hover, #install + fieldset td:first-child input[type="submit"]:focus {
+	text-decoration: underline;
+}
+
+/* ==========================================================================
+   7 = Admin
+   ========================================================================== */
+
+#admin fieldset, #admin + fieldset {
+	min-width: 100%;
+	border: none;
+}
+
+#admin table, #admin + fieldset table {
+	width: 100%;
+	border-collapse: collapse;
+	border-bottom: 2px solid #FFF;
+}
+
+#admin td, #admin + fieldset td {
+	padding: 0.5em 1em;
+}
+
+#admin td:empty {
+	width: 13.1em;
+}
+
+#admin table form:nth-child(odd), #admin + fieldset tr:nth-child(odd) {
+	background: var(--bgaccent);
+}
+
+#admin fieldset > form {
+	margin-top: 2em;
+	text-align: center;
+}
+
+#admin form {
+	display: table;
+	width: 100%;
+}
+
+#admin td:last-child {
+	text-align: right;
+}
+
+#admin .info {
+	width: auto;
+	text-align: left;
+}
+
+#admin input[type="submit"] {
+	min-width: 10.5em;
+}
+
+#admin + fieldset table {
+	font-size: 0.9em;
+}
+
+#admin + fieldset td:first-child input[type="submit"] {
+	background: none;
+	padding: 0;
+	color: #000;
+	font-weight: bold;
+	border-bottom: 0;
+}
+
+#admin + fieldset td:first-child input[type="submit"]:hover, #admin + fieldset td:first-child input[type="submit"]:focus {
+	text-decoration: underline;
+}
+
+/* ==========================================================================
+   8 = Download page
+   ========================================================================== */
+
+#self_destruct {
+	font-weight: bold;
+	color: red;
+	background-image: url('pixel_bomb.png');
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	padding-left: 40px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.download td {
+	font-size: .75rem;
+	padding-bottom: 3ch;
+	text-align: center;
+	word-break: break-all;
+}
+
+#submit_download, #submit_preview {
+	font-size: 1rem;
+	border: 1px solid var(--main);
+}
+
+#submit_preview {
+	background-color: var(--bg);
+	color: var(--main);
+	margin-left: 1ch;
+}
